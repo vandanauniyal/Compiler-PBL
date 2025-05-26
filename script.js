@@ -1,3 +1,17 @@
+document.getElementById("docTab").addEventListener("click", () => {
+  document.getElementById("documentation").classList.remove("hidden");
+  document.getElementById("finalWork").classList.add("hidden");
+  document.getElementById("docTab").classList.add("active");
+  document.getElementById("finalTab").classList.remove("active");
+});
+
+document.getElementById("finalTab").addEventListener("click", () => {
+  document.getElementById("documentation").classList.add("hidden");
+  document.getElementById("finalWork").classList.remove("hidden");
+  document.getElementById("finalTab").classList.add("active");
+  document.getElementById("docTab").classList.remove("active");
+});
+
 function tokenize(code) {
   const tokens = [];
   const tokenRegex = /\/\/.*|#include|int|for|while|if|else|return|\+\+|==|<=|>=|!=|[{}()\[\];,=<>+\-*/]|"[^"]*"|\b[_a-zA-Z][_a-zA-Z0-9]*\b|\d+/g;
@@ -22,19 +36,24 @@ function tokenize(code) {
 }
 
 function buildAST(tokens) {
-  // Simple mock AST structure for demonstration
   return {
     type: "Program",
-    body: tokens.map(t => ({ type: t.type === "Keyword" && t.value === "#include" ? "IncludeDirective" :
-                            t.type === "Keyword" && t.value === "int" ? "VariableDeclaration" :
-                            t.type, value: t.value }))
+    body: tokens.map(t => ({
+      type:
+        t.type === "Keyword" && t.value === "#include"
+          ? "IncludeDirective"
+          : t.type === "Keyword" && t.value === "int"
+          ? "VariableDeclaration"
+          : t.type,
+      value: t.value,
+    })),
   };
 }
 
 function renderTokens(tokens) {
   const tbody = document.querySelector("#tokenTable tbody");
   tbody.innerHTML = "";
-  tokens.forEach(({type, value}) => {
+  tokens.forEach(({ type, value }) => {
     const tr = document.createElement("tr");
     const tdType = document.createElement("td");
     tdType.textContent = type;
@@ -47,8 +66,7 @@ function renderTokens(tokens) {
 }
 
 function renderAST(ast) {
-  const pre = document.getElementById("astTree");
-  pre.textContent = JSON.stringify(ast, null, 2);
+  document.getElementById("astTree").textContent = JSON.stringify(ast, null, 2);
 }
 
 function analyzeCode() {
@@ -69,29 +87,15 @@ function saveResults() {
     alert("Please analyze code first.");
     return;
   }
-
   const { tokens, ast } = window.latestResults;
-
-  // Format tokens as "Type\tValue" lines
   const tokenLines = tokens.map(t => `${t.type}\t${t.value}`);
-
-  // Format AST as pretty JSON string
   const astString = JSON.stringify(ast, null, 2);
-
-  // Combine everything with section headers
-  const content = [
-    "TOKENS:",
-    ...tokenLines,
-    "",
-    "AST:",
-    astString
-  ].join("\n");
-
+  const content = ["TOKENS:", ...tokenLines, "", "AST:", astString].join("\n");
   const blob = new Blob([content], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "c_code_analysis.txt"; 
+  a.download = "c_code_analysis.txt";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
