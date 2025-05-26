@@ -9,36 +9,197 @@
 <body>
   <header>
     <h1>C Code Analyzer</h1>
+    <nav class="tabs">
+      <button id="finalTab" class="tab">Final Work</button>
+      <button id="docTab" class="tab active">Documentation</button>
+    </nav>
   </header>
 
   <main>
-    <textarea id="codeInput" placeholder="Paste your C code here..."></textarea>
+    <section id="finalWork" class="tab-content hidden">
+      <textarea id="codeInput" placeholder="Paste your C code here..."></textarea>
 
-    <div class="buttons">
-      <button id="analyzeBtn">Analyze</button>
-      <button id="saveBtn">Save</button>
-    </div>
-
-    <section class="results-container">
-      <div class="box">
-        <h2>Tokens</h2>
-        <table id="tokenTable">
-          <thead>
-            <tr><th>Type</th><th>Value</th></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <div class="buttons">
+        <button id="analyzeBtn">Analyze</button>
+        <button id="saveBtn">Save</button>
       </div>
 
-      <div class="box">
-        <h2>AST</h2>
-        <pre id="astTree"></pre>
-      </div>
+      <section class="results-container">
+        <div class="box">
+          <h2>Tokens</h2>
+          <table id="tokenTable">
+            <thead>
+              <tr><th>Type</th><th>Value</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <h2>AST</h2>
+          <pre id="astTree"></pre>
+        </div>
+      </section>
+    </section>
+    <section id="documentation" class="tab-content">
+      <h2>Documentation</h2>
+    
+      <h3>1. Introduction</h3>
+      <p>
+        A <strong>compiler</strong> is a translator program that converts source code written
+        in a high-level programming language (e.g., C, Java) into target code (typically
+        machine code or an intermediate form) executable by a computer.  Compiler design
+        is divided into well-defined phases to systematically bridge the gap between human-
+        readable programs and efficient machine instructions.
+      </p>
+    
+      <h3>2. Major Phases of a Compiler</h3>
+      <ol>
+        <li>
+          <strong>Lexical Analysis (Scanning)</strong><br>
+          <ul>
+            <li><em>Input:</em> Stream of characters.</li>
+            <li><em>Output:</em> Stream of tokens (lexemes + token types).</li>
+            <li><strong>Tasks:</strong>  
+              <ul>
+                <li>Remove whitespace and comments.</li>
+                <li>Recognize identifiers, keywords, literals, and operators.</li>
+                <li>Report lexical errors (e.g., invalid symbols).</li>
+              </ul>
+            </li>
+            <li><strong>Techniques:</strong> Regular expressions define token patterns;  
+                DFAs/NFAs implement the scanner (e.g., <code>flex</code>).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Syntax Analysis (Parsing)</strong><br>
+          <ul>
+            <li><em>Input:</em> Token stream.</li>
+            <li><em>Output:</em> Parse tree or abstract syntax tree (AST).</li>
+            <li><strong>Tasks:</strong>  
+              <ul>
+                <li>Verify the token sequence conforms to the grammar (context-free grammar).</li>
+                <li>Build a hierarchical tree representing program structure.</li>
+                <li>Detect syntax errors and perform limited error recovery.</li>
+              </ul>
+            </li>
+            <li><strong>Techniques:</strong>  
+              <ul>
+                <li><em>Top-Down:</em> Recursive-descent, LL(1) predictive parsers.</li>
+                <li><em>Bottom-Up:</em> Shift-reduce parsers, LR(0), SLR(1), LALR(1), canonical LR(1).</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Semantic Analysis</strong><br>
+          <ul>
+            <li><em>Input:</em> AST.</li>
+            <li><em>Output:</em> Decorated AST, symbol table entries.</li>
+            <li><strong>Tasks:</strong>  
+              <ul>
+                <li>Type checking (ensure expressions/operators are applied to compatible types).</li>
+                <li>Undeclared/duplicate identifier checks.</li>
+                <li>Scope and linkage resolution.</li>
+                <li>Evaluate constant expressions at compile time.</li>
+              </ul>
+            </li>
+            <li><strong>Data Structures:</strong>  
+              <ul>
+                <li><em>Symbol Table:</em> Stores identifiers, types, scope levels, memory locations.</li>
+                <li><em>Attribute Grammars:</em> Attach semantic rules to grammar productions.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Intermediate Code Generation</strong><br>
+          <ul>
+            <li><em>Input:</em> Decorated AST.</li>
+            <li><em>Output:</em> Intermediate representation (IR), such as three-address code, quadruples, triples, or SSA form.</li>
+            <li><strong>Tasks:</strong>  
+              <ul>
+                <li>Linearize tree into a sequence of simple instructions.</li>
+                <li>Introduce temporary variables for subexpressions.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Code Optimization</strong><br>
+          <ul>
+            <li><em>Input:</em> IR.</li>
+            <li><em>Output:</em> Optimized IR.</li>
+            <li><strong>Tasks:</strong>  
+              <ul>
+                <li><em>Local optimizations:</em> Constant folding, algebraic simplification, dead-code elimination within basic blocks.</li>
+                <li><em>Global optimizations:</em> Common subexpression elimination, loop invariant code motion across basic blocks.</li>
+                <li><em>Data-flow analysis:</em> Available expressions, live variable analysis.</li>
+              </ul>
+            </li>
+            <li><strong>Goal:</strong> Improve runtime performance and reduce code size without changing semantics.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Code Generation</strong><br>
+          <ul>
+            <li><em>Input:</em> Optimized IR.</li>
+            <li><em>Output:</em> Target code (assembly or machine code).</li>
+            <li><strong>Tasks:</strong>  
+              <ul>
+                <li>Instruction selection (map IR ops to machine instructions).</li>
+                <li>Register allocation (assign temporaries to physical registers using graph-coloring or linear scan).</li>
+                <li>Instruction scheduling (reorder for pipeline efficiency).</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Error Handling & Recovery</strong><br>
+          <ul>
+            <li>Lexical errors: invalid tokens.</li>
+            <li>Syntax errors: unexpected tokens, missing symbols.</li>
+            <li>Semantic errors: type mismatches, undeclared identifiers.</li>
+            <li>Recovery strategies: panic mode (skip to synchronizing tokens), phrase level.</li>
+          </ul>
+        </li>
+      </ol>
+    
+      <h3>3. Symbol Table Management</h3>
+      <p>
+        A central repository maintained across phases. Entries include:
+      </p>
+      <ul>
+        <li><strong>Name:</strong> Identifier string.</li>
+        <li><strong>Type:</strong> Data type or function signature.</li>
+        <li><strong>Scope level:</strong> Global, function, block.</li>
+        <li><strong>Memory location:</strong> Stack offset or static address.</li>
+      </ul>
+    
+      <h3>4. Front-end vs. Back-end</h3>
+      <p>
+        <strong>Front-end:</strong> Lexical, syntax, semantic analysis, IR generation.  
+        <strong>Back-end:</strong> Optimization and code generation for a specific target.
+      </p>
+    
+      <h3>5. Compiler Writing Tools</h3>
+      <ul>
+        <li><strong>Lex/Flex:</strong> Generates lexical scanners from regex rules.</li>
+        <li><strong>Yacc/Bison:</strong> Generates parsers from CFG grammars.</li>
+        <li><strong>LLVM:</strong> Framework for IR, optimization passes, and code generators.</li>
+      </ul>
+    
+      <h3>6. Conclusion</h3>
+      <p>
+        Compiler design systematically transforms human-readable programs into efficient machine
+        instructions via discrete phases.  Understanding each phase’s theory and trade-offs is
+        essential for building reliable, performant compilers and tools.
+      </p>
     </section>
   </main>
 
   <footer>
-    Creators: Vandana Uniyal, Dhruv Aggarwal, Archi Sardana, Anurag Negi
+    Creators:  Vandana Uniyal,Dhruv Aggarwal, Aarchi Sardana, Anurag Negi
   </footer>
 
   <script src="script.js"></script>
