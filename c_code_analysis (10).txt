@@ -1,0 +1,2598 @@
+TOKENS:
+PreprocessorDirective	#include
+Operator	<
+Identifier	stdio
+Identifier	h
+Operator	>
+PreprocessorDirective	#include
+Operator	<
+Identifier	string
+Identifier	h
+Operator	>
+Identifier	struct
+Identifier	Account
+Delimiter	{
+Keyword	int
+Identifier	accNo
+Delimiter	;
+Identifier	char
+Identifier	name
+Delimiter	[
+Number	100
+Delimiter	]
+Delimiter	;
+Identifier	float
+Identifier	balance
+Delimiter	;
+Delimiter	}
+Delimiter	;
+Identifier	define
+Identifier	MAX
+Number	100
+Identifier	struct
+Identifier	Account
+Identifier	bank
+Delimiter	[
+Identifier	MAX
+Delimiter	]
+Delimiter	;
+Keyword	int
+Identifier	count
+Operator	=
+Number	0
+Delimiter	;
+Identifier	void
+Identifier	createAccount
+Delimiter	(
+Delimiter	)
+Delimiter	{
+Keyword	if
+Delimiter	(
+Identifier	count
+Operator	>=
+Identifier	MAX
+Delimiter	)
+Delimiter	{
+Identifier	printf
+Delimiter	(
+Symbol	"Account limit reached.\n"
+Delimiter	)
+Delimiter	;
+Keyword	return
+Delimiter	;
+Delimiter	}
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Account Number: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%d"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	count
+Delimiter	]
+Identifier	accNo
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Name: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%s"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	count
+Delimiter	]
+Identifier	name
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Initial Balance: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%f"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	count
+Delimiter	]
+Identifier	balance
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Account created successfully!\n"
+Delimiter	)
+Delimiter	;
+Identifier	count
+Operator	++
+Delimiter	;
+Delimiter	}
+Identifier	void
+Identifier	deposit
+Delimiter	(
+Delimiter	)
+Delimiter	{
+Keyword	int
+Identifier	accNo
+Delimiter	;
+Identifier	float
+Identifier	amount
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Account Number: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%d"
+Delimiter	,
+Identifier	accNo
+Delimiter	)
+Delimiter	;
+Keyword	for
+Delimiter	(
+Keyword	int
+Identifier	i
+Operator	=
+Number	0
+Delimiter	;
+Identifier	i
+Operator	<
+Identifier	count
+Delimiter	;
+Identifier	i
+Operator	++
+Delimiter	)
+Delimiter	{
+Keyword	if
+Delimiter	(
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	accNo
+Operator	==
+Identifier	accNo
+Delimiter	)
+Delimiter	{
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Amount to Deposit: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%f"
+Delimiter	,
+Identifier	amount
+Delimiter	)
+Delimiter	;
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	balance
+Operator	+=
+Identifier	amount
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Deposit successful! New Balance: %.2f\n"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	balance
+Delimiter	)
+Delimiter	;
+Keyword	return
+Delimiter	;
+Delimiter	}
+Delimiter	}
+Identifier	printf
+Delimiter	(
+Symbol	"Account not found.\n"
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Identifier	void
+Identifier	withdraw
+Delimiter	(
+Delimiter	)
+Delimiter	{
+Keyword	int
+Identifier	accNo
+Delimiter	;
+Identifier	float
+Identifier	amount
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Account Number: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%d"
+Delimiter	,
+Identifier	accNo
+Delimiter	)
+Delimiter	;
+Keyword	for
+Delimiter	(
+Keyword	int
+Identifier	i
+Operator	=
+Number	0
+Delimiter	;
+Identifier	i
+Operator	<
+Identifier	count
+Delimiter	;
+Identifier	i
+Operator	++
+Delimiter	)
+Delimiter	{
+Keyword	if
+Delimiter	(
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	accNo
+Operator	==
+Identifier	accNo
+Delimiter	)
+Delimiter	{
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Amount to Withdraw: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%f"
+Delimiter	,
+Identifier	amount
+Delimiter	)
+Delimiter	;
+Keyword	if
+Delimiter	(
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	balance
+Operator	>=
+Identifier	amount
+Delimiter	)
+Delimiter	{
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	balance
+Operator	-=
+Identifier	amount
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Withdrawal successful! Remaining Balance: %.2f\n"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	balance
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Keyword	else
+Delimiter	{
+Identifier	printf
+Delimiter	(
+Symbol	"Insufficient funds.\n"
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Keyword	return
+Delimiter	;
+Delimiter	}
+Delimiter	}
+Identifier	printf
+Delimiter	(
+Symbol	"Account not found.\n"
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Identifier	void
+Identifier	checkBalance
+Delimiter	(
+Delimiter	)
+Delimiter	{
+Keyword	int
+Identifier	accNo
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Enter Account Number: "
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%d"
+Delimiter	,
+Identifier	accNo
+Delimiter	)
+Delimiter	;
+Keyword	for
+Delimiter	(
+Keyword	int
+Identifier	i
+Operator	=
+Number	0
+Delimiter	;
+Identifier	i
+Operator	<
+Identifier	count
+Delimiter	;
+Identifier	i
+Operator	++
+Delimiter	)
+Delimiter	{
+Keyword	if
+Delimiter	(
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	accNo
+Operator	==
+Identifier	accNo
+Delimiter	)
+Delimiter	{
+Identifier	printf
+Delimiter	(
+Symbol	"Account Holder: %s\n"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	name
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Balance: %.2f\n"
+Delimiter	,
+Identifier	bank
+Delimiter	[
+Identifier	i
+Delimiter	]
+Identifier	balance
+Delimiter	)
+Delimiter	;
+Keyword	return
+Delimiter	;
+Delimiter	}
+Delimiter	}
+Identifier	printf
+Delimiter	(
+Symbol	"Account not found.\n"
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Identifier	void
+Identifier	showMenu
+Delimiter	(
+Delimiter	)
+Delimiter	{
+Identifier	printf
+Delimiter	(
+Symbol	"\n===== Banking System Menu =====\n"
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"1. Create Account\n"
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"2. Deposit\n"
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"3. Withdraw\n"
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"4. Check Balance\n"
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"5. Exit\n"
+Delimiter	)
+Delimiter	;
+Identifier	printf
+Delimiter	(
+Symbol	"Enter your choice: "
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Keyword	int
+Identifier	main
+Delimiter	(
+Delimiter	)
+Delimiter	{
+Keyword	int
+Identifier	choice
+Delimiter	;
+Keyword	while
+Delimiter	(
+Number	1
+Delimiter	)
+Delimiter	{
+Identifier	showMenu
+Delimiter	(
+Delimiter	)
+Delimiter	;
+Identifier	scanf
+Delimiter	(
+Symbol	"%d"
+Delimiter	,
+Identifier	choice
+Delimiter	)
+Delimiter	;
+Identifier	switch
+Delimiter	(
+Identifier	choice
+Delimiter	)
+Delimiter	{
+Identifier	case
+Number	1
+Identifier	createAccount
+Delimiter	(
+Delimiter	)
+Delimiter	;
+Identifier	break
+Delimiter	;
+Identifier	case
+Number	2
+Identifier	deposit
+Delimiter	(
+Delimiter	)
+Delimiter	;
+Identifier	break
+Delimiter	;
+Identifier	case
+Number	3
+Identifier	withdraw
+Delimiter	(
+Delimiter	)
+Delimiter	;
+Identifier	break
+Delimiter	;
+Identifier	case
+Number	4
+Identifier	checkBalance
+Delimiter	(
+Delimiter	)
+Delimiter	;
+Identifier	break
+Delimiter	;
+Identifier	case
+Number	5
+Identifier	printf
+Delimiter	(
+Symbol	"Exiting... Goodbye!\n"
+Delimiter	)
+Delimiter	;
+Keyword	return
+Number	0
+Delimiter	;
+Identifier	default
+Identifier	printf
+Delimiter	(
+Symbol	"Invalid choice.\n"
+Delimiter	)
+Delimiter	;
+Delimiter	}
+Delimiter	}
+Delimiter	}
+
+AST:
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "PreprocessorDirective",
+      "value": "#include"
+    },
+    {
+      "type": "Operator",
+      "value": "<"
+    },
+    {
+      "type": "Identifier",
+      "value": "stdio"
+    },
+    {
+      "type": "Identifier",
+      "value": "h"
+    },
+    {
+      "type": "Operator",
+      "value": ">"
+    },
+    {
+      "type": "PreprocessorDirective",
+      "value": "#include"
+    },
+    {
+      "type": "Operator",
+      "value": "<"
+    },
+    {
+      "type": "Identifier",
+      "value": "string"
+    },
+    {
+      "type": "Identifier",
+      "value": "h"
+    },
+    {
+      "type": "Operator",
+      "value": ">"
+    },
+    {
+      "type": "Identifier",
+      "value": "struct"
+    },
+    {
+      "type": "Identifier",
+      "value": "Account"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "char"
+    },
+    {
+      "type": "Identifier",
+      "value": "name"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Number",
+      "value": "100"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "float"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "define"
+    },
+    {
+      "type": "Identifier",
+      "value": "MAX"
+    },
+    {
+      "type": "Number",
+      "value": "100"
+    },
+    {
+      "type": "Identifier",
+      "value": "struct"
+    },
+    {
+      "type": "Identifier",
+      "value": "Account"
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "MAX"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Operator",
+      "value": "="
+    },
+    {
+      "type": "Number",
+      "value": "0"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "void"
+    },
+    {
+      "type": "Identifier",
+      "value": "createAccount"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Keyword",
+      "value": "if"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Operator",
+      "value": ">="
+    },
+    {
+      "type": "Identifier",
+      "value": "MAX"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Account limit reached.\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "return"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Account Number: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%d\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Name: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%s\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "name"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Initial Balance: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%f\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Account created successfully!\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Operator",
+      "value": "++"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "void"
+    },
+    {
+      "type": "Identifier",
+      "value": "deposit"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "float"
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Account Number: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%d\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "for"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "="
+    },
+    {
+      "type": "Number",
+      "value": "0"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "<"
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "++"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Keyword",
+      "value": "if"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Operator",
+      "value": "=="
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Amount to Deposit: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%f\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Operator",
+      "value": "+="
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Deposit successful! New Balance: %.2f\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "return"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Account not found.\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "void"
+    },
+    {
+      "type": "Identifier",
+      "value": "withdraw"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "float"
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Account Number: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%d\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "for"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "="
+    },
+    {
+      "type": "Number",
+      "value": "0"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "<"
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "++"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Keyword",
+      "value": "if"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Operator",
+      "value": "=="
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Amount to Withdraw: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%f\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "if"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Operator",
+      "value": ">="
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Operator",
+      "value": "-="
+    },
+    {
+      "type": "Identifier",
+      "value": "amount"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Withdrawal successful! Remaining Balance: %.2f\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Keyword",
+      "value": "else"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Insufficient funds.\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Keyword",
+      "value": "return"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Account not found.\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "void"
+    },
+    {
+      "type": "Identifier",
+      "value": "checkBalance"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter Account Number: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%d\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "for"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "="
+    },
+    {
+      "type": "Number",
+      "value": "0"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "<"
+    },
+    {
+      "type": "Identifier",
+      "value": "count"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Operator",
+      "value": "++"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Keyword",
+      "value": "if"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Operator",
+      "value": "=="
+    },
+    {
+      "type": "Identifier",
+      "value": "accNo"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Account Holder: %s\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "name"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Balance: %.2f\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "bank"
+    },
+    {
+      "type": "Delimiter",
+      "value": "["
+    },
+    {
+      "type": "Identifier",
+      "value": "i"
+    },
+    {
+      "type": "Delimiter",
+      "value": "]"
+    },
+    {
+      "type": "Identifier",
+      "value": "balance"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "return"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Account not found.\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Identifier",
+      "value": "void"
+    },
+    {
+      "type": "Identifier",
+      "value": "showMenu"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"\\n===== Banking System Menu =====\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"1. Create Account\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"2. Deposit\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"3. Withdraw\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"4. Check Balance\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"5. Exit\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Enter your choice: \""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "main"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "VariableDeclaration",
+      "value": "int"
+    },
+    {
+      "type": "Identifier",
+      "value": "choice"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "while"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Number",
+      "value": "1"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "showMenu"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "scanf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"%d\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ","
+    },
+    {
+      "type": "Identifier",
+      "value": "choice"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "switch"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Identifier",
+      "value": "choice"
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": "{"
+    },
+    {
+      "type": "Identifier",
+      "value": "case"
+    },
+    {
+      "type": "Number",
+      "value": "1"
+    },
+    {
+      "type": "Identifier",
+      "value": "createAccount"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "break"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "case"
+    },
+    {
+      "type": "Number",
+      "value": "2"
+    },
+    {
+      "type": "Identifier",
+      "value": "deposit"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "break"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "case"
+    },
+    {
+      "type": "Number",
+      "value": "3"
+    },
+    {
+      "type": "Identifier",
+      "value": "withdraw"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "break"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "case"
+    },
+    {
+      "type": "Number",
+      "value": "4"
+    },
+    {
+      "type": "Identifier",
+      "value": "checkBalance"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "break"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "case"
+    },
+    {
+      "type": "Number",
+      "value": "5"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Exiting... Goodbye!\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Keyword",
+      "value": "return"
+    },
+    {
+      "type": "Number",
+      "value": "0"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Identifier",
+      "value": "default"
+    },
+    {
+      "type": "Identifier",
+      "value": "printf"
+    },
+    {
+      "type": "Delimiter",
+      "value": "("
+    },
+    {
+      "type": "Symbol",
+      "value": "\"Invalid choice.\\n\""
+    },
+    {
+      "type": "Delimiter",
+      "value": ")"
+    },
+    {
+      "type": "Delimiter",
+      "value": ";"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    },
+    {
+      "type": "Delimiter",
+      "value": "}"
+    }
+  ]
+}
