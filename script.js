@@ -14,20 +14,29 @@ document.getElementById("finalTab").addEventListener("click", () => {
 
 function tokenize(code) {
   const tokens = [];
-  const tokenRegex = /\/\/.*|#include|int|for|while|if|else|return|\+\+|==|<=|>=|!=|[{}()\[\];,=<>+\-*/]|"[^"]*"|\b[_a-zA-Z][_a-zA-Z0-9]*\b|\d+/g;
+  const tokenRegex = /\/\/.*|#include|int|for|while|if|else|return|\+\+|--|\+=|-=|\*=|\/=|==|!=|<=|>=|[%+\-*/=<>]|[{}()[\];,]|"[^"]*"|\b[_a-zA-Z][_a-zA-Z0-9]*\b|\d+/g;
+
   let match;
 
   while ((match = tokenRegex.exec(code)) !== null) {
-    let value = match[0];
+    const value = match[0];
     let type = "Identifier";
 
-    if (/^\/\/.*/.test(value)) type = "Comment";
-    else if (/^#include$/.test(value)) type = "Keyword";
-    else if (/^(int|for|while|if|else|return)$/.test(value)) type = "Keyword";
-    else if (/^[{}()\[\];,=<>+\-*/]$/.test(value)) type = "Delimiter";
-    else if (/^\+\+$/.test(value)) type = "Operator";
-    else if (/^\d+$/.test(value)) type = "Number";
-    else if (/^".*"$/.test(value)) type = "Symbol";
+    if (/^\/\/.*/.test(value)) {
+      type = "Comment";
+    } else if (/^#include$/.test(value)) {
+      type = "PreprocessorDirective";
+    } else if (/^(int|for|while|if|else|return)$/.test(value)) {
+      type = "Keyword";
+    } else if (/^[{}()[\];,]$/.test(value)) {
+      type = "Delimiter";
+    } else if (/^(\+\+|--|\+=|-=|\*=|\/=|==|!=|<=|>=|[%+\-*/=<>])$/.test(value)) {
+      type = "Operator";
+    } else if (/^\d+$/.test(value)) {
+      type = "Number";
+    } else if (/^".*"$/.test(value)) {
+      type = "Symbol";
+    }
 
     tokens.push({ type, value });
   }
@@ -53,7 +62,7 @@ function buildAST(tokens) {
 function renderTokens(tokens) {
   const tbody = document.querySelector("#tokenTable tbody");
   tbody.innerHTML = "";
-  tokens.forEach(({ type, value }) => {
+  tokens.forEach(({ type, value }) => {  //arrow function
     const tr = document.createElement("tr");
     const tdType = document.createElement("td");
     tdType.textContent = type;
@@ -66,7 +75,7 @@ function renderTokens(tokens) {
 }
 
 function renderAST(ast) {
-  document.getElementById("astTree").textContent = JSON.stringify(ast, null, 2);
+  document.getElementById("astTree").textContent = JSON.stringify(ast, null, 2);//print
 }
 
 function analyzeCode() {
@@ -87,19 +96,20 @@ function saveResults() {
     alert("Please analyze code first.");
     return;
   }
+  
   const { tokens, ast } = window.latestResults;
   const tokenLines = tokens.map(t => `${t.type}\t${t.value}`);
   const astString = JSON.stringify(ast, null, 2);
-  const content = ["TOKENS:", ...tokenLines, "", "AST:", astString].join("\n");
-  const blob = new Blob([content], { type: "text/plain" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "c_code_analysis.txt";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  const content = ["TOKENS:", ...tokenLines, "", "AST:", astString].join("\n"); //spread operator...
+  const blob = new Blob([content], { type: "text/plain" }); //memory mae bnra h
+  const url = URL.createObjectURL(blob); //blob address store hora 
+  const a = document.createElement("a");//anchor tag link to this url
+  a.href = url;   //jb bhi koi link dabayega ,file will download
+  a.download = "c_code_analysis.txt";  //file name
+  document.body.appendChild(a); 
+  a.click();  //jb bhi click hoga tb chlega ye event
+  document.body.removeChild(a);  //one time use tha everytime we have to make new file for new input
+    
 }
 
 document.getElementById("analyzeBtn").addEventListener("click", analyzeCode);
